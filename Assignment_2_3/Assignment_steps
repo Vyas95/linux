@@ -1,0 +1,18 @@
+I did this assignment by myself
+
+
+Steps for Assignments 2 and 3:
+1. Open cpuid.c file inside the kvm directory
+2. Scroll down to the absolute last part of the code (kvm_emulate_cpuid), which contains the actions for different CPU leaf nodes.
+3. Insert the code for leaf nodes 0x4fffffff, 0x4ffffffe, 0x4ffffffd and 0x4ffffffc.
+4. The code for these nodes are responsible for containing what needs to happen if any of these nodes are encountered.
+5. Now, open vmx.c inside the /kvm/vmx/ directory..
+6. This file contains the actual actions that need to be taken if any kind of exits occur.
+7. In cpuid.c, I have exported a function which is called inside vmx.c (vmx_handle_exits).
+   This function accepts exit reasons and time difference which is used by kvm_emulate_cpuid function.
+8. The function exported from cpuid.c is extern in vmx.c.
+9. Once the logic for all CPUID leaf nodes is written in both the files, install QEMU on the VMM.
+10. The above step is to make sure the existing VM becomes the VMM, and has another VM installed inside it to see if the changes made to vmx.c and cpuid.c are reflected.
+11. Run cpuid instruction inside QEMU, and provide the required CPUID leaf nodes as inputs.
+12. Details about the total number of exits, time taken to process them, total number of individual exits are all obtained inside QEMU.
+

@@ -1,0 +1,2 @@
+1. Yes, the number of exits keep increasing at a stable rate. A full VM boot usually entails around 1823746 exits on my laptop.
+2. Exit 30 (I/O exits) are the most frequent, occuring rapidly during every boot up.
